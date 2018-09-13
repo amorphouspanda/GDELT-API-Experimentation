@@ -1,0 +1,22 @@
+{
+	"name": "GDELT-Chrome Integration",
+	"version": "1.0",
+	"description": "View analytics from all over the world with GDELT's databases inserted right into your Google Search!",
+	"permissions": ["declarativeContent", "storage", "tabs", "https://www.google.ca/*"],
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+    },
+    "content_scripts": [
+		{
+			"js": ["jquery/jquery-3.3.1.js", "content.js"],
+			"matches": ["https://www.google.ca/*"],
+			"run_at": "document_end",
+			"all_frames": true
+		}
+    ],
+	"page_action": {
+		"default_popup": "popup.html"
+    },
+	"manifest_version": 2
+}
